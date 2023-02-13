@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<style>
+    .div{
+        background-color: lightblue;
+        width: 300px;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0;
+        padding: 10px 5px;
+        border-radius: 10px;
+
+    }
+
+    .div span{
+        color: white;
+        background-color: darkslategrey;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    #list {
+        padding: 8px 20px;
+    }
+
+    button {
+        background-color: rgb(0, 122, 203);
+        padding: 8px 25px;
+        border: none;
+        border-radius: 3px;
+    }
+</style>
+
+<body>
+    <h4>SATURDAY TO-DO LIST</h4>
+    <input type="text" name="" id="list">
+    <button onclick="add()">Add</button>
+    <div id="screen"></div>
+
+
+</body>
+
+</html>
+<script>
+    let todolist = document.getElementById("list")
+    let mytodo = ["Laundry", "Cook", "Clean", "Arrange", "Code", "Research"]
+    // reuseable.mytodo = function(reuse)  {mytodo.map((chores, index) => {
+    //         document.getElementById("screen").innerHTML += `<div class= "div"> ${chores} 
+    //             <button onclick="show(${index})">
+    //                 <span class="material-symbols-outlined">
+    //                     delete
+    //                 </span>
+    //             </button>
+    //         </div>`})
+    //     }
+
+    function disp(){
+        document.getElementById("screen").innerHTML = ""
+        mytodo.map((chores, index) => {
+            document.getElementById("screen").innerHTML += `<div class= "div"> ${chores} 
+                <button onclick="show(${index})">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                </button>
+            </div>`})
+    }
+    disp()
+    function add() {
+        mytodo.push(todolist.value);
+        console.log(mytodo)
+        disp()
+                   //REUSEABLE FUNCTION
+        //mytodo.map((x)=>{document.getElementById("screen").innerHTML += "<div>" ${x} "</div>"})    
+    }
+    function show(index) {
+        mytodo.splice(index, 1);
+        console.log(mytodo);
+       disp()
+    }
+
+
+
+
+    // function show(){
+      //  (console.log(mytodo,index)=>{})
+     //}
+     //function todo(){
+     //   console.log(mytodo)
+     //}
+
+
+</script>
